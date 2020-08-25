@@ -1,7 +1,8 @@
 # Setup Webhook for masterBOT.
 
 You need to manually set the webhook for this bot.
-Format = https://api.telegram.org/bot<TOKEN>/setwebhook?url=<SERVER>?masterbot=bot<TOKEN>
+
+Format = https://api.telegram.org/bot< TOKEN >/setwebhook?url=< SERVER >?masterbot=bot< TOKEN >
 
 TOKEN = 12345:DBFLKDJBFLJKFLKS
 
