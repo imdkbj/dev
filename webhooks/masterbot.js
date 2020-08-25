@@ -8,7 +8,7 @@
 //Now run the runme.js
 
 
-const tokenRegex = /^[0-9]{9}:[a-zA-Z0-9_-]{35}$/gm;
+const tokenRegex = /^[0-9]{6,10}:[a-zA-Z0-9_-]{35}$/gm;
 const serveraddress = 'https://domain.com:8443?allbots';
 
 const Telegraf = require("telegraf");
