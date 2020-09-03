@@ -9,7 +9,8 @@
 
 
 const tokenRegex = /^[0-9]{6,10}:[a-zA-Z0-9_-]{35}$/gm;
-const serveraddress = 'https://domain.com:8443?allbots';
+const mydomain = 'https://domain.com:8443';
+const serveraddress = mydomain + 'allbots';
 
 const Telegraf = require("telegraf");
 
@@ -26,5 +27,11 @@ module.exports.handleUpdate = (bot) => {
     bot.on("message", (ctx) => ctx.replyWithHTML('U said ' + ctx.message.text))
 
     bot.catch((e) => console.error(e))
+    
+    bot.launch({
+        webhook: {
+            hookPath: `${mydomain}masterbot=bot${master_bot_token}`,
+        },
+    });
 
 }
