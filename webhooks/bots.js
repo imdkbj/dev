@@ -1,8 +1,14 @@
+//check https://github.com/hnaderi/telegraf-session-mysql to create a table in databse.
+
 const MySQLSession = require('telegraf-session-mysql')
 
-const session = new MySQLSession(Object.assign(MEMBER_DB, {
-    getSessionKey: (ctx) => `${ctx.chat.id}:${ctx.tg.token.split(":")[0]}`
-}));
+const session = new MySQLSession({
+  host: 'localhost',
+  user: 'user',
+  password: 'pass',
+  database: 'telegraf_sessions',
+  getSessionKey: (ctx) => `${ctx.chat.id}:${ctx.tg.token.split(":")[0]}`
+})
 
 module.exports.handleUpdate = (bot,token) => {
     bot.use(session.middleware());
