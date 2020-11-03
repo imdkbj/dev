@@ -28,16 +28,9 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use(bodyParser.json({
-    verify: (req, res, buf) => {
-        req.rawBody = buf
-    }
-}))
+app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
-    //send response
-    res.sendStatus(200);
-    
     const query = req.originalUrl.split('=');
     //get bot token from the webhook
     const token = query[1].substring(3);
@@ -51,14 +44,14 @@ app.post('/', (req, res) => {
 
         case ('allbots'):
             var bot = new Telegraf(token);
-            require('./bots.js').handleUpdate(bot);
-            bot.handleUpdate(msg);
+            require('./bots.js').handleUpdate(bot, token);
+            bot.handleUpdate(msg, res);
             break;
 
         case ('masterbot'):
             var bot = new Telegraf(token);
-            require('./masterbot.js').handleUpdate(bot);
-            bot.handleUpdate(msg);
+            require('./masterbot.js').handleUpdate(bot, token);
+            bot.handleUpdate(msg, res);
             break;
 
         case ('someother'):
