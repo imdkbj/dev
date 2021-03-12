@@ -16,6 +16,6 @@ Once you make the url, Just copy paste this in browesr and hit enter.
 
 # Now run the runme.js
 
-Go to maser bot and it will ask you to send token for any additional public bots u want to setup.
+Go to master bot and it will ask you to send token for any additional public bots u want to setup.
 
 All rest bots will follow the same code logic which is inside the bot.js file.
